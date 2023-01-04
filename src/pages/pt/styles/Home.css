@@ -1,0 +1,64 @@
+.title {
+  transform-style: preserve-3d;
+  perspective: 2px;
+}
+
+.layer {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  top: 0;
+}
+
+.background {
+  background: url(../../../assets/images/backgrounds/Compressed/layer3.png);
+  background-size: cover;
+  background-position: 0;
+  background-repeat: no-repeat;
+  filter: brightness(20%);
+  position: absolute;
+  z-index: 0;
+}
+
+.text {
+  background: url(../../../assets/images/backgrounds/Compressed/layer3.png);
+  font-size: 60vw;
+  background-position: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: TheSignature, monospace;
+  position: absolute;
+  z-index: 1;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.table {
+  background: url(../../../assets/images/backgrounds/Compressed/layer2.png);
+  background-size: cover;
+  background-position: 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 3;
+}
+
+.mirror {
+  background: url(../../../assets/images/backgrounds/Compressed/layer1.png);
+  background-size: cover;
+  width: 100vh;
+  height: 100vh;
+  background-position: 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+div {
+  scroll-behavior: smooth !important;
+  margin: 0 !important;
+}/*# sourceMappingURL=Home.css.map */

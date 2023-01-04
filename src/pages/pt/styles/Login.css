@@ -1,0 +1,35 @@
+h1 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: rgb(216, 194, 106);
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: rgb(216, 194, 106);
+}
+
+b .login {
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 120px;
+  max-width: 600px;
+  height: 70vh;
+  background-image: linear-gradient(to right, rgba(67, 67, 67, 0.384) 0%, black 100%);
+  padding: 20px;
+  margin-top: 5em;
+  letter-spacing: 5px;
+  color: white;
+}
+b .login a {
+  color: white;
+}
+b .login .bottom {
+  margin: auto;
+  width: 100%;
+}
+b .login .bottom span {
+  margin: auto;
+}/*# sourceMappingURL=Login.css.map */
