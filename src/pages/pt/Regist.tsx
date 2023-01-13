@@ -8,9 +8,10 @@ function Regist() {
 
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
-    const [user, setUser]:any = useState({});
+    const [user, setUser] = useState({});
     const register = async () => {
         try {
+            console.log("Checkpoint REGISTER");
           const user = await createUserWithEmailAndPassword(
             Auth,
             registerEmail,
@@ -22,12 +23,16 @@ function Regist() {
         }
       };
     const logout = async () =>{
+        console.log("Checkpoint LOGOUT");
         await signOut(Auth)
     };
     onAuthStateChanged(Auth, (currentUser) => {
+        console.log("Checkpoint ONAUTH")
         setUser(currentUser);
+        console.log("Checkpoint CURRENTUSER");
       });
     if(user==null){
+        console.log("Checkpoint IF")
         return (
             <div className="content">
                 <Navbar user={user?.email} ></Navbar>
@@ -61,6 +66,7 @@ function Regist() {
             </div>
         )
     } else {
+        console.log("Checkpoint ELSE")
         return(
             <div className="content">
             <Navbar user={user?.email} ></Navbar>
