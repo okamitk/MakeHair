@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom";
 import "./styles/login.css";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import {Auth} from '../../firebase-config';
 import Navbar from '../../assets/components/Navbar';
+import Animation from '../../assets/components/Animation';
 function Regist() {
-
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [user, setUser]:any = useState({});
     const register = async () => {
         try {
-          const user = await createUserWithEmailAndPassword(
+            console.log("Checkpoint REGISTER");
+          let user = await createUserWithEmailAndPassword(
             Auth,
             registerEmail,
             registerPassword
@@ -22,15 +23,23 @@ function Regist() {
         }
       };
     const logout = async () =>{
+        console.log("Checkpoint LOGOUT");
         await signOut(Auth)
     };
-    onAuthStateChanged(Auth, (currentUser) => {
-        setUser(currentUser);
-      });
+    useEffect(() => {
+        onAuthStateChanged(Auth, (currentUser) => {
+            console.log("Checkpoint ONAUTH")
+            setUser(currentUser);
+            console.log("Checkpoint CURRENTUSER");
+          });
+    })
     if(user==null){
+        console.log("Checkpoint IF")
+        console.log(user)
         return (
             <div className="content">
                 <Navbar user={user?.email} ></Navbar>
+                <Animation counter={1} scale={50} left={20} top={-20}></Animation>
                 <div id="login" className='login'>
                     <h1 className="gradient_text">REGISTRO</h1>
                     <form className="form">
@@ -61,6 +70,7 @@ function Regist() {
             </div>
         )
     } else {
+        console.log("Checkpoint ELSE")
         return(
             <div className="content">
             <Navbar user={user?.email} ></Navbar>
@@ -69,7 +79,7 @@ function Regist() {
                     <div className="warning">
                         Você precisa sair da conta {user?.email} antes de se registrar ou fazer login novamente
                     </div>
-                    <button type="submit" name="submit" onClick={logout} value="login">SAIR</button>
+                    <a href="/pt/registrar" onClick={logout}>SAIR</a>
                 </div>
             </div>
         )
