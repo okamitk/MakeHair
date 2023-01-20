@@ -1,0 +1,57 @@
+// original code: https://codepen.io/SitePoint/pen/NvbMmJ
+  .animation-wrapper{//the overall settings for the animation div
+    width: fit-content;
+    height: fit-content;
+    z-index: 9;
+  }
+  .hitbox{//hitbox for hover
+    position: absolute;
+    top: 80px;
+    left: 120px;
+    width: 120px;
+    height: 120px;
+    //the hitbox should be in a z-index above the animation
+  }
+  .animation {//spritesheet and animation
+    position: relative;//the animation-wrapper now have a size
+    z-index: 8;
+    pointer-events: none;
+    margin: auto;
+    //size
+    width: 300px;
+    height: 300px;
+    //background
+    background-image: url('../../images/spritesheet.png'); //spritesheet made with https://codeshack.io/images-sprite-sheet-generator/
+    background-size: 2300%, 100%; //2300% because it's 23 frames
+    background-position: left; //animation begins from left to right
+    background-repeat: no-repeat;
+    //animation
+    animation-name: fill;
+    animation-duration: 1s;
+    animation-timing-function: steps(22); //22 steps because it's 23 frames
+    animation-iteration-count: infinite;
+    animation-play-state: inherit;
+    @keyframes fill {
+      from {
+        background-position: left;
+      }
+      to { 
+        background-position: right;
+      }
+    }
+  }
+  .idle{//idle image
+    //background image
+    background-image: url(../../images/1.png); //idle image file
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    position: relative;
+    //size
+    width: 300px;
+    height: 300px;
+  }
+  .paused{//pause on middle of animation
+    animation-play-state: paused;
+  }
+  //animation from left to right

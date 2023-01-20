@@ -1,0 +1,71 @@
+.animation-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 9;
+}
+
+.hitbox {
+  position: absolute;
+  top: 80px;
+  left: 120px;
+  width: 120px;
+  height: 120px;
+}
+
+.animation {
+  position: relative;
+  z-index: 8;
+  pointer-events: none;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  background-image: url("../../images/spritesheet.png");
+  background-size: 2300%, 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+  -webkit-animation-name: fill;
+          animation-name: fill;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: steps(22);
+          animation-timing-function: steps(22);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-play-state: inherit;
+          animation-play-state: inherit;
+}
+@-webkit-keyframes fill {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+@keyframes fill {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+
+.idle {
+  background-image: url(../../images/1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.paused {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}/*# sourceMappingURL=animation.css.map */
